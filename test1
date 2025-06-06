@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quick Math Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background: #f8f8f8;
+    }
+    h1 { font-size: 2rem; }
+    input, button {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      margin-top: 1rem;
+    }
+    .question-box {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question-box">
+    <h1>What is 15% of $40?</h1>
+    <input type="number" id="answer" placeholder="Enter your answer" />
+    <br />
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="feedback"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const correct = 6;
+      const user = parseFloat(document.getElementById('answer').value);
+      const feedback = document.getElementById('feedback');
+      if (Math.abs(user - correct) < 0.01) {
+        feedback.textContent = "✅ Correct! Well done.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Not quite. The correct answer is $6.00.";
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
